@@ -117,6 +117,7 @@ button {
 .hero-copy,
 .hero-panel,
 .card,
+.interest-board,
 .manifesto {
   border: 1px solid var(--line);
   background: var(--panel);
@@ -174,6 +175,23 @@ h1 span {
   color: var(--muted);
 }
 
+.inline-link {
+  color: var(--accent-soft);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 179, 107, 0.4);
+  text-underline-offset: 0.18em;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+
+.inline-link:hover,
+.inline-link:focus-visible {
+  color: var(--accent);
+  text-decoration-color: rgba(255, 179, 107, 0.9);
+  outline: none;
+}
+
 .hero-actions {
   display: flex;
   align-items: center;
@@ -213,7 +231,7 @@ h1 span {
 
 .rotating-word {
   display: inline-block;
-  min-width: 8ch;
+  min-width: 12ch;
   color: var(--signal);
   font-weight: 700;
   transition:
@@ -253,7 +271,8 @@ h1 span {
 
 .panel-row strong {
   text-align: right;
-  max-width: 24ch;
+  max-width: 26ch;
+  overflow-wrap: anywhere;
   color: var(--text);
 }
 
@@ -295,6 +314,72 @@ h1 span {
   color: var(--muted);
 }
 
+.interest-board {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+  gap: 24px;
+  margin-top: 36px;
+  padding: clamp(24px, 4vw, 34px);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at top left, rgba(123, 226, 195, 0.1), transparent 34%),
+    linear-gradient(180deg, rgba(255, 179, 107, 0.08), transparent 45%),
+    var(--panel);
+}
+
+.interest-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.interest-text {
+  margin: 0;
+  max-width: 24rem;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.interest-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 132px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.interest-link:hover,
+.interest-link:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(255, 179, 107, 0.4);
+  background: rgba(255, 179, 107, 0.06);
+  outline: none;
+}
+
+.interest-link strong {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.interest-link span {
+  line-height: 1.6;
+  color: var(--muted);
+}
+
 .manifesto {
   margin-top: 72px;
   padding: clamp(26px, 4vw, 40px);
@@ -311,6 +396,14 @@ h1 span {
   font-size: clamp(2rem, 5vw, 3.8rem);
   line-height: 1.02;
   letter-spacing: -0.03em;
+}
+
+.manifesto-note {
+  max-width: 42rem;
+  margin: 20px 0 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
 }
 
 .site-footer {
@@ -339,6 +432,11 @@ h1 span {
   }
 
   .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-board,
+  .interest-grid {
     grid-template-columns: 1fr;
   }
 

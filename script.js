@@ -23,7 +23,7 @@ if (scrollButton) {
 }
 
 if (rotatingWord && !reduceMotion) {
-  const words = ["software", "interfaces", "ideas", "prototipos"];
+  const words = ["lenguajes", "compiladores", "Rocq", "Curry-Howard"];
   let index = 0;
 
   window.setInterval(() => {
